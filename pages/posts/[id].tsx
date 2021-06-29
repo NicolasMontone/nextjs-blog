@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import { GetStaticProps, GetStaticPaths } from 'next'
-import { homedir } from 'os'
+
 
 
 export default function Post({
@@ -29,6 +29,11 @@ export default function Post({
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+    if (params === undefined) {
+        return {
+            props: {}
+        }
+    }
     const postData = await getPostData(params.id as string)
     return {
         props: {
