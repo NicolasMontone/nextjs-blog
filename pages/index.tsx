@@ -12,14 +12,14 @@ export default function Home({ allPostsData }: { allPostsData: { title: string; 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map((PostData) => (
-            <li className={utilStyles.listItem} key={PostData.id}>
-              <Link href={`/posts/${PostData.id}`}>
-                <a>{PostData.title}</a>
+          {allPostsData.map((postData) => (
+            <li className={utilStyles.listItem} key={postData.id}>
+              <Link href={`/posts/${postData.id}`}>
+                <a>{postData.title}</a>
               </Link>
               <br />
               <small className={utilStyles.lightText}>
-                <Date dateString={PostData.date} />
+                <Date dateString={postData.date} />
               </small>
             </li>
           ))}
